@@ -36,17 +36,19 @@ public class Film {
 	
 	@Column(name = "Tartalom") private String tartalom;
 	@Column(name = "Ev") private Integer ev;
+	@Column(name = "Kep") private String kep;
 	
 	@OneToMany
 	private Set<Vetites> vetitesek;
 	
-	public Film(String cim, String szereplok, Integer jatekIdo, Mufaj mufaj, String tartalom, Integer ev, Vetites vetitesek) {
+	public Film(String cim, String szereplok, Integer jatekIdo, Mufaj mufaj, String tartalom, Integer ev, String kep, Vetites vetitesek) {
 		this.cim = cim;
 		this.szereplok = szereplok;
 		this.jatekIdo = jatekIdo;
 		this.mufaj = mufaj;
 		this.tartalom = tartalom;
 		this.ev = ev;
+		this.kep = kep;
 		this.vetitesek = Stream.of(vetitesek).collect(Collectors.toSet());
 		this.vetitesek.forEach(x -> x.setFilm(this));
 	}
@@ -94,5 +96,12 @@ public class Film {
 	}
 	public void setEv(Integer ev) {
 		this.ev = ev;
+	}
+	
+	public String getKep() {
+		return kep;
+	}
+	public void setKep (String kep) {
+		this.kep = kep;
 	}
 }
