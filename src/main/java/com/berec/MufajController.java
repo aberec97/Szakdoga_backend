@@ -11,28 +11,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.berec.model.Mufaj;
-import com.berec.model.MufajRepository;
+import com.berec.model.MufajService;
 
 @RestController
 @RequestMapping(value = "/categories")
-public class CategoryController {
-	private MufajRepository categoryRepo;
-	
+public class MufajController {
+
 	@Autowired
-	public CategoryController(MufajRepository categoryRepo) {
-		this.categoryRepo = categoryRepo;
-	}
+	private MufajService service;
 	
 	@CrossOrigin
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
 	public List<Mufaj> allCategories() {
-		return categoryRepo.findAll();
+		return service.listAll();
 	}
 
 	@CrossOrigin
 	@PostMapping(value = "/addcategory")
 	public Mufaj addCategory(@RequestBody Mufaj mufaj){
-		categoryRepo.save(mufaj);
+		service.save(mufaj);
 		return mufaj;
 	}
 	
