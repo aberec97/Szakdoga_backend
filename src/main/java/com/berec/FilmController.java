@@ -46,5 +46,11 @@ public class FilmController {
 	public Film filmIdSzerint(@PathVariable Integer id) {
 		return service.findById(id);
 	}
+
+	@CrossOrigin
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+	public void filmTorlese(@PathVariable Integer id) {
+		service.delete(id);
+	}
 	
 }

@@ -12,32 +12,32 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.berec.model.Vetites;
-import com.berec.model.VetitesRepository;
+import com.berec.model.VetitesService;
 
 @RestController
 @RequestMapping(value = "/vetitesek")
 public class VetitesController {
 
 	@Autowired
-	VetitesRepository vetitesRepo;
+	VetitesService service;
 	
 	@CrossOrigin
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
-	public List<Vetites> mindenFilm() {
-		return vetitesRepo.findAll();
+	public List<Vetites> mindenVetites() {
+		return service.listAllOrderByIdopont();
 	}
 
 	@CrossOrigin
 	@PostMapping(value = "/addvetites")
 	public Vetites addVetites(@RequestBody Vetites vetites){
-		vetitesRepo.save(vetites);
+		service.save(vetites);
 		return vetites;
 	}
 	
 	@CrossOrigin
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public List<Vetites> vetitesByFilm(@PathVariable Integer id){
-		return vetitesRepo.findAllByFilmID(id);
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+	public void vetitesTorlese(@PathVariable Integer id){
+		service.delete(id);
 	}
 	
 	

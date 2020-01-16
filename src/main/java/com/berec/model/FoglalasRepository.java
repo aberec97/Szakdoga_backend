@@ -6,8 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface VetitesRepository  extends JpaRepository<Vetites, Integer>{
-
-	List<Vetites> findAllByOrderByIdopontAsc();
+public interface FoglalasRepository extends JpaRepository<Foglalas, Integer>{
+    
+    List<Foglalas> findAllByVetitesID(Integer id);
 
 }

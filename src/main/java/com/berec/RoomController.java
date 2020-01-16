@@ -20,7 +20,7 @@ public class RoomController {
 
 	@CrossOrigin
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
-	public List<Terem> mindenFilm() {
+	public List<Terem> mindenTerem() {
 		return roomRepo.findAll();
 	}
 	

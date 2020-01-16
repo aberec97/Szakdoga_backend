@@ -15,6 +15,10 @@ public class VetitesService {
         return vetitesRepo.findAll();
     }
 
+    public List<Vetites> listAllOrderByIdopont() {
+        return vetitesRepo.findAllByOrderByIdopontAsc();
+    }
+
     public void save(Vetites vetites) {
         vetitesRepo.save(vetites);
     }
@@ -26,4 +30,6 @@ public class VetitesService {
     public void delete(Integer id) {
         vetitesRepo.deleteById(id);
     }
+
+
 }
