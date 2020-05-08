@@ -15,7 +15,6 @@ public class Felhasznalo {
     private String Jelszo;
     private String Email;
     private boolean Admin;
-
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -28,6 +28,12 @@ public class VetitesController {
 	}
 
 	@CrossOrigin
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	public Vetites vetitesIdSzerint(@PathVariable Integer id) {
+		return service.findById(id);
+	}
+
+	@CrossOrigin
 	@PostMapping(value = "/addvetites")
 	public Vetites addVetites(@RequestBody Vetites vetites){
 		service.save(vetites);
