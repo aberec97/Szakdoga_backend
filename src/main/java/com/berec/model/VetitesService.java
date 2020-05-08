@@ -23,7 +23,7 @@ public class VetitesService {
         vetitesRepo.save(vetites);
     }
 
-    public Vetites get(Integer id) {
+    public Vetites findById(Integer id) {
         return vetitesRepo.findById(id).get();
     }
 

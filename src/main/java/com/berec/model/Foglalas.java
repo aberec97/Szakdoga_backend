@@ -17,7 +17,7 @@ public class Foglalas {
 
     private Integer ID;
     private Integer Hely_sorszama;
-    private Integer Igazolvany_szam;
+    private String Email;
     private Vetites Vetites;
 
     @Id
@@ -38,12 +38,12 @@ public class Foglalas {
         Hely_sorszama = hely_sorszama;
     }
 
-    public Integer getIgazolvany_szam() {
-        return Igazolvany_szam;
+    public String getEmail() {
+        return Email;
     }
 
-    public void setIgazolvany_szam(Integer igazolvany_szam) {
-        Igazolvany_szam = igazolvany_szam;
+    public void setEmail(String email) {
+        Email = email;
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -56,9 +56,4 @@ public class Foglalas {
     public void setVetites(Vetites vetites) {
         Vetites = vetites;
     }
-
-    
-
-
-
 }
